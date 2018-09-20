@@ -3,8 +3,8 @@ package com.example.shuangxi.myapplication;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -47,17 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
                                                String name = _data.getStringExtra("name");
 
-
-////                                               String title = getResources().getString(R.string.chooser_title);
-//                                               String title = getResources().getString(R.string.app_name);
-//                                               Intent chooser = Intent.createChooser(sendIntent, title);
-//                                               if (sendIntent.resolveActivity(getPackageManager()) != null) {
-//                                                   startActivity(chooser);}
-
-
-                                               Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(name) );
-//                                               sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my contact to show.");
-//                                               sendIntent.setType("text/plain");
+                                               Intent sendIntent = new Intent(Intent.ACTION_INSERT);
+                                               sendIntent.setType(ContactsContract.Contacts.CONTENT_TYPE);
+                                               sendIntent.putExtra(ContactsContract.Intents.Insert.NAME, name);
                                                String title = "Pick an app to show the name ";
                                                Intent chooser = Intent.createChooser(sendIntent, title);
                                                if (sendIntent.resolveActivity(getPackageManager()) != null) {
@@ -69,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                                                String name = _data.getStringExtra("name");
 
                                                Context context = getApplicationContext();
-                                               CharSequence text = "You enter an incorrect name: " + name;
+                                               CharSequence text = "You entered an incorrect name: " + name;
                                                int duration = Toast.LENGTH_SHORT;
 
                                                Toast toast = Toast.makeText(context, text, duration);

@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="267dp"
-        android:layout_height="35dp"
+        android:layout_width="276dp"
+        android:layout_height="83dp"
         android:layout_marginBottom="44dp"
         android:layout_marginEnd="87dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="35dp"
-        android:text="Please enter a valid name below(First and last name, seperate by space):"
+        android:text="Please enter a valid name below(First and last name, each containing a sequence of alphabetical characters and seperate by space):"
         app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
